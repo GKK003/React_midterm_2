@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+/*
+Source - https://stackoverflow.com/q/79607461
+Posted by Shape, modified by community. See post 'Timeline' for change history
+Retrieved 2026-03-06, License - CC BY-SA 4.0
+*/
+
+/*
+Source - https://stackoverflow.com/a/79607480
+Posted by rozsazoltan
+Retrieved 2026-03-06, License - CC BY-SA 4.0
+*/
+
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-*: initial;
+}
+
+@custom-variant 2xl (@media (max-width: 1535px));
+@custom-variant xl (@media (max-width: 1279px));
+@custom-variant lg (@media (max-width: 1023px));
+@custom-variant md (@media (max-width: 767px));
+@custom-variant sm (@media (max-width: 639px));
+@custom-variant gg (@media (max-width: 450px));
+
+body {
+  background-color: #f5f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+  min-height: 100vh;
+  padding: 0 20px;
+}
