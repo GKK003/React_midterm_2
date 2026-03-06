@@ -77,7 +77,7 @@ function MainDiv() {
           {replies1.map((reply, i) => (
             <WhiteBox
               key={i}
-              profile={ProfileWoman}
+              profile={MyProfile}
               number={0}
               date={new Date(reply.date).toLocaleDateString()}
               name="Gkostava03"
