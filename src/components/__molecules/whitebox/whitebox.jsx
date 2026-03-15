@@ -1,17 +1,36 @@
 import BackArrow from "../../../assets/back.png";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function WhiteBox(props) {
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(props.text);
   const [displayText, setDisplayText] = useState(props.text);
 
+  const isVisible = useRef(null);
+
+  useEffect(() => {
+    function handleOutsideClick(e) {
+      if (isVisible.current && !isVisible.current.contains(e.target)) {
+        setShowDelete(false);
+      }
+    }
+
+    if (showDelete) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [showDelete]);
+
   return (
     <>
-      {showDeleteModal && (
+      {showDelete && (
         <div className="fixed inset-0 bg-[rgba(0,0,0,0.5)] flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-[380px] w-full mx-4 shadow-xl">
+          <div
+            ref={isVisible}
+            className="bg-white rounded-lg p-6 max-w-[380px] w-full mx-4 shadow-xl"
+          >
             <p className="text-[#334253] text-[20px] font-bold mb-3">
               Delete comment
             </p>
@@ -21,14 +40,14 @@ function WhiteBox(props) {
             </p>
             <div className="flex gap-3">
               <button
-                onClick={() => setShowDeleteModal(false)}
+                onClick={() => setShowDelete(false)}
                 className="flex-1 py-3 bg-[#67727E] text-white font-bold rounded-lg hover:opacity-70 uppercase text-[14px] cursor-pointer"
               >
                 No, Cancel
               </button>
               <button
                 onClick={() => {
-                  setShowDeleteModal(false);
+                  setShowDelete(false);
                   props.deleteclick();
                 }}
                 className="flex-1 py-3 bg-[#ED6368] text-white font-bold rounded-lg hover:opacity-70 uppercase text-[14px] cursor-pointer"
@@ -100,7 +119,7 @@ function WhiteBox(props) {
           {props.isOwn ? (
             <div className="flex gap-4 absolute bottom-[5px] right-[5%]  md:bottom-[5px] md:left-[10%] gg:left-[50%]">
               <div
-                onClick={() => setShowDeleteModal(true)}
+                onClick={() => setShowDelete(true)}
                 className="flex justify-center items-center gap-1.5 cursor-pointer  "
               >
                 <p className="text-[#ED6368] text-[16px] font-bold">Delete</p>
