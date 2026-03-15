@@ -10,7 +10,7 @@ function WhiteBox(props) {
   return (
     <>
       {showDeleteModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-100 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-[rgba(0,0,0,0.5)] flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 max-w-[380px] w-full mx-4 shadow-xl">
             <p className="text-[#334253] text-[20px] font-bold mb-3">
               Delete comment
@@ -22,7 +22,7 @@ function WhiteBox(props) {
             <div className="flex gap-3">
               <button
                 onClick={() => setShowDeleteModal(false)}
-                className="flex-1 py-3 bg-[#67727E] text-white font-bold rounded-lg hover:opacity-70 uppercase text-[14px]"
+                className="flex-1 py-3 bg-[#67727E] text-white font-bold rounded-lg hover:opacity-70 uppercase text-[14px] cursor-pointer"
               >
                 No, Cancel
               </button>
@@ -31,7 +31,7 @@ function WhiteBox(props) {
                   setShowDeleteModal(false);
                   props.deleteclick();
                 }}
-                className="flex-1 py-3 bg-[#ED6368] text-white font-bold rounded-lg hover:opacity-70 uppercase text-[14px]"
+                className="flex-1 py-3 bg-[#ED6368] text-white font-bold rounded-lg hover:opacity-70 uppercase text-[14px] cursor-pointer"
               >
                 Yes, Delete
               </button>
@@ -40,7 +40,7 @@ function WhiteBox(props) {
         </div>
       )}
 
-      <div className="max-w-[700px] bg-white w-full p-4 pb-10 flex gap-5 justify-start items-start rounded-lg relative md:h-auto gg:h-[300px]">
+      <div className="max-w-[700px] bg-white w-full p-4 pb-10 flex gap-5 justify-start items-start rounded-lg relative md:h-auto gg:h-[300px]  ">
         <div className="w-[40px] h-[100px] flex gap-1 flex-col justify-center items-center bg-[#F5F6FA] rounded-[10px] gg:absolute gg:top-55 gg:left-[15%] gg:-rotate-90">
           <p
             onClick={props.plusclick}

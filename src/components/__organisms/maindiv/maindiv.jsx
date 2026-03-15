@@ -73,7 +73,7 @@ function MainDiv() {
           <ReplyBox replysubmit={(text) => addReply1("@amyrobson " + text)} />
         )}
 
-        <div className="flex flex-col gap-6 ml-16 pl-6 border-l-2 border-[#F5F6FA]">
+        <div className="flex flex-col gap-6 ml-16 pl-6 border-l-2 border-[#F5F6FA] lg:ml-0">
           {replies1.map((reply, i) => (
             <WhiteBox
               key={i}
@@ -122,7 +122,7 @@ function MainDiv() {
           <ReplyBox replysubmit={(text) => addReply2("@maxblagun " + text)} />
         )}
 
-        <div className="flex flex-col gap-6 ml-16 pl-6 border-l-2 border-[#F5F6FA]">
+        <div className="flex flex-col gap-6 ml-16 pl-6 border-l-2 border-[#F5F6FA] lg:ml-0">
           {replies2.map((reply, i) => (
             <WhiteBox
               key={i}
